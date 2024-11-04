@@ -5,6 +5,14 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const cors = require('cors');
+
+// Allow CORS for certain origins
+app.use(cors({
+  origin: 'http://localhost:5173', 
+}));
+
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
